@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}ROSY - Logout Page{% endblock title %}
+
+{% block body %}
+<div id='en'>
+    <h1 class='h1'>You have been Logout</h1>
+    <p class='p'>Thank you for using ROSY</p>
+    <a class='a' href="{% url 'login' %}">Login</a>
+</div>
+<div id='ar'>
+    <h1 class='h1'>لقد قمت بتسجيل الخروج</h1>
+    <p class='p'>ROSY شكرا لك على استخدام</p>
+    <a class='a' href="{% url 'login' %}">سجل دخول</a>
+</div>
+{% endblock body %}

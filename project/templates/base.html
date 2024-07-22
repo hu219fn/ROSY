@@ -1,0 +1,253 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='description' content='Welcome to 🔆 Handy Gleam Store 🔆 A special store for handmade bags with love 🤍 With us you can design your own bag ❣️'>
+        <meta name='keywords' content='Handy Gleam'>
+        <meta name='auther' content='@hu226fn فاطمة همام'>
+        <title>{% block title %}{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon" href="{% static 'images/rosy.jpg' %}" >
+    </head>
+    <body>
+        <nav id='nav1'>
+            <div class='nav'>
+                <ul>
+                    <div class='div0'>
+                        <li>
+                            <a href=''>
+                                <img src="{% static 'images/rosy.jpg' %}">
+                            </a>
+                        </li>
+                        <li>
+                            <a href=''>
+                                <h3>ROSY</h3>
+                            </a>    
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <a href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li>
+                            <button id='btns'>Sections</button>
+                            <ul id='ul-btn'>
+                                <li><a href='/makeup/'>Makeup 💄</a></li><hr>
+                                <li><a href='/care-products/'>Care Products 💅🏻</a></li><hr>
+                                <li><a href='/perfumes/'>Perfumes 🌬️</a></li><hr>
+                                <li><a href='/presents/'>Presents 🎁</a></li><hr>
+                                <li><a href='/men-clothes/'>Men's Clothes 👨🏻</a></li><hr>
+                                <li><a href='/women-clothes/'>Women's Clothes 👩🏻</a></li><hr>
+                                <li><a href='/girls-clothes/'>Girls' Baby Clothes 👧🏻</a></li><hr>
+                                <li><a href='/boys-clothes/'>Boys' Baby Clothes 👦🏻</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url 'discounts' %}">Discounts</a>
+                        </li>
+                        {% if request.user.username == 'rosy' %}
+                        <li>
+                            <a href="{% url 'management' %}">Management</a>
+                        </li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <button><a href="{% url 'orders' %}" style='margin:0'><span class="material-symbols-rounded">shopping_cart</span></a></button>
+                        </li>
+                        <li>
+                            <button onclick='change_language()'><span class="material-symbols-outlined">language</span></button>
+                        </li>
+                    </div>
+                </ul>
+                <button id='menu1'><span class="material-symbols-outlined">menu</span></button>
+                <ul id='ul1'>
+                    <li>
+                        <a href="{% url 'index' %}">Home</a>
+                    </li><hr>
+                    <li>
+                        <button id='btns2'>Sections</button>
+                        <ul id='ul-btn2'>
+                            <li><a href='/makeup/'>Makeup 💄</a></li>
+                            <li><a href='/care-products/'>Care Products 💅🏻</a></li>
+                            <li><a href='/perfumes/'>Perfumes 🌬️</a></li>
+                            <li><a href='/presents/'>Presents 🎁</a></li>
+                            <li><a href='/men-clothes/'>Men's Clothes 👨🏻</a></li>
+                            <li><a href='/women-clothes/'>Women's Clothes 👩🏻</a></li>
+                            <li><a href='/girls-clothes/'>Girls' Baby Clothes 👧🏻</a></li>
+                            <li><a href='/boys-clothes/'>Boys' Baby Clothes 👦🏻</a></li>
+                        </ul>
+                    </li><hr>
+                    <li>
+                        <a href="{% url 'discounts' %}">Discounts</a>
+                    </li><hr>
+                    <li>
+                        <a href="{% url 'orders' %}">Orders</a>
+                    </li><hr>
+                    {% if request.user.username == 'rosy' %}
+                    <li>
+                        <a href="{% url 'management' %}">Management</a>
+                    </li><hr>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li><hr>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Login</a>
+                    </li><hr>
+                    {% endif %}
+                    <li>
+                        <button onclick='change_language()'>Change Language</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav id='nav2'>
+            <div class='nav'>
+                <ul>
+                    <div class='div0'>
+                        <li>
+                            <a href=''>
+                                <img src="{% static 'images/rosy.jpg' %}">
+                            </a>
+                        </li>
+                        <li>
+                            <a href=''>
+                                <h3>ROSY</h3>
+                            </a>    
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <a href="{% url 'index' %}">الصفحة الرئيسية</a>
+                        </li>
+                        <li>
+                            <button id='btns1'>الاقسام</button>
+                            <ul id='ul-btn1'>
+                                <li><a href='/makeup/'>مكياج 💄</a></li><hr>
+                                <li><a href='/care-products/'>منتجات عناية 💅🏻</a></li><hr>
+                                <li><a href='/perfumes/'>عطور 🌬️</a></li><hr>
+                                <li><a href='/presents/'>هدايا 🎁</a></li><hr>
+                                <li><a href='/men-clothes/'>ملابس رجالية 👨🏻</a></li><hr>
+                                <li><a href='/women-clothes/'>ملابس نسائية 👩🏻</a></li><hr>
+                                <li><a href='/girls-clothes/'>ملابس بناتية 👧🏻</a></li><hr>
+                                <li><a href='/boys-clothes/'>ملابس ولادية 👦🏻</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url 'discounts' %}">تخفيضات وخصومات</a>
+                        </li>
+                        {% if request.user.username == 'rosy' %}
+                        <li>
+                            <a href="{% url 'management' %}">الادارة</a>
+                        </li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">تسجيل الخروج</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">تسجيل الدخول</a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <button><a href="{% url 'orders' %}" style='margin:0'><span class="material-symbols-rounded">shopping_cart</span></a></button>
+                        </li>
+                        <li>
+                            <button onclick='change_language()'><span class="material-symbols-outlined">language</span></button>
+                        </li>
+                    </div>
+                </ul>
+                <button id='menu2'><span class="material-symbols-outlined">menu</span></button>
+                <ul id='ul2'>
+                    <li>
+                        <a href="{% url 'index' %}">الصفحة الرئيسية</a>
+                    </li><hr>
+                    <li>
+                        <button id='btns3'>الاقسام</button>
+                        <ul id='ul-btn3'>
+                            <li><a href='/makeup/'>مكياج 💄</a></li>
+                            <li><a href='/care-products/'>منتجات عناية 💅🏻</a></li>
+                            <li><a href='/perfumes/'>عطور 🌬️</a></li>
+                            <li><a href='/presents/'>هدايا 🎁</a></li>
+                            <li><a href='/men-clothes/'>ملابس رجالية 👨🏻</a></li>
+                            <li><a href='/women-clothes/'>ملابس نسائية 👩🏻</a></li>
+                            <li><a href='/girls-clothes/'>ملابس بناتية 👧🏻</a></li>
+                            <li><a href='/boys-clothes/'>ملابس ولادية 👦🏻</a></li>
+                        </ul>
+                    </li><hr>
+                    <li>
+                        <a href="{% url 'discounts' %}">تخفيضات وخصومات</a>
+                    </li><hr>
+                    <li>
+                        <a href="{% url 'orders' %}">السلة</a>
+                    </li><hr>
+                    {% if request.user.username == 'rosy' %}
+                    <li>
+                        <a href="{% url 'management' %}">الادارة</a>
+                    </li><hr>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">تسجيل الخروج</a>
+                    </li><hr>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">تسجيل الدخول</a>
+                    </li><hr>
+                    {% endif %}
+                    <li>
+                        <button onclick='change_language()'>تغيير اللغة</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>{% block body %}{% endblock body %}</main>
+        <footer id='footer1'>
+            <div class='footer1'>
+                <img src="{% static 'images/rosy.jpg' %}">
+                <h3>ROSY</h3>
+                <p>🧡 Welcome to ROSY 🧡<br>👌 We offer you all kinds of products (clothes, care, etc..) 👌<br>💯 We have many discounts and offers 💯<br>❗️ We thank you for choosing our store ❗️</p>
+            </div>
+            <div class='footer2'>
+                <h3>☎️ Call Us ☎️</h3>
+                <ul>
+                    <strong id='p1' style='margin-left:-45px'>copied!</strong>
+                    <li><b>📞</b><button id='copy1'> 07709798900 </button><b>📞</b></li>
+                    <li><b><img src="{% static 'images/instagram.png' %}"></b><a href='https://www.instagram.com/victo.riastore2/' target='_blanck'> @ victo.riastore2 </a><b><img src="{% static 'images/instagram.png' %}"></b></li>
+                    <li><b><img src="{% static 'images/instagram.png' %}"></b><a href='https://www.instagram.com/rosy.store4/' target='_blanck'> @ rosy.store4 </a><b><img src="{% static 'images/instagram.png' %}"></b></li>
+                </ul>
+            </div>
+        </footer>
+        <footer id='footer2'>
+            <div class='footer1'>
+                <img src="{% static 'images/rosy.jpg' %}">
+                <h3>ROSY</h3>
+                <p>🧡 ROSY مرحبا بكم في 🧡<br>👌نقدم لكم كافة أنواع المنتجات (ملابس، عناية، الخ..) 👌<br>💯 لدينا العديد من الخصومات والعروض 💯<br>❗️ نشكركم على اختيار متجرنا ❗️</p>
+            </div>
+            <div class='footer2'>
+                <h3>☎️ اتصل بنا ☎️</h3>
+                <ul>
+                    <strong id='p2' style='margin-left:-55px'>!تم النسخ</strong>
+                    <li><b>📞</b><button id='copy2'> 07709798900 </button><b>📞</b></li>
+                    <li><b><img src="{% static 'images/instagram.png' %}"></b><a href='https://www.instagram.com/victo.riastore2/' target='_blanck'> @ victo.riastore2 </a><b><img src="{% static 'images/instagram.png' %}"></b></li>
+                    <li><b><img src="{% static 'images/instagram.png' %}"></b><a href='https://www.instagram.com/rosy.store4/' target='_blanck'> @ rosy.store4 </a><b><img src="{% static 'images/instagram.png' %}"></b></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="{% static 'js/js.js' %}"></script>
+    </body>
+</html>

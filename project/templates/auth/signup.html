@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}ROSY - Register{% endblock title %}
+
+{% block body %}
+<div id='en'>
+    <form method='post'>
+        <h1>Register Form</h1>
+        {% csrf_token %}
+        {{form}}
+        <input type='submit' value='Register'>
+        <p>Have account? <a href="{% url 'login' %}">Login</a> .</p>
+    </form>
+</div>
+<div id='ar' style='direction:rtl'>
+    <form method='post'>
+        <h1>انشاء الحساب</h1>
+        {% csrf_token %}
+        {{form}}
+        <input type='submit' value='حفظ'>
+        <p>تملك حساب؟ <a href="{% url 'login' %}">تسجيل دخول</a> .</p>
+    </form>
+</div>
+{% endblock body %}

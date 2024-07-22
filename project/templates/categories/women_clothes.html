@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}ROSY - Women's Clothes{% endblock title %}
+
+{% block body %}
+<header id='header'>
+    <h1 id='en1'>👩🏻 Women's Clothes</h1>
+    <h1 id='ar1'>👩🏻 ملابس نسائية</h1>
+    <button id='en'><a href="{% url 'index' %}">All Products</a></button>
+    <button id='ar'><a href="{% url 'index' %}">كل المنتجات</a></button>
+</header>
+<div class='content'>
+    {% for item in items %}
+    <section>
+        <a href='/{{item.id}}/'>
+            <img src="{{item.photo.url}}" />
+            <h3>{{item.title}}</h3>
+            <p>{{item.caption}}</p>
+            <h4>{{item.price}} IRQ</h4>
+        </a>
+        {% if item.sell %}
+        <strong>{{item.sell}}</strong>
+        {% endif %}
+    </section>
+    {% endfor %}
+</div>
+{% endblock body %}

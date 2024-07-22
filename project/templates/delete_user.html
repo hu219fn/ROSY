@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}ROSY - Delete {{user.username}}{% endblock title %}
+{% block body %}
+
+<form method='POST' id='en' style='text-align:center;'>
+    {% csrf_token %}
+    <h1>Delete "{{user.username}}"</h1>
+    <p>Are you sure you want to delete this user?</p>
+    <button><a href='/management/'>Back</a></button>
+    <input type='submit' value='Delete'>
+</form>
+<form method='POST' id='ar' style='text-align:center;'>
+    {% csrf_token %}
+    <h1>"{{user.username}}" حذف</h1>
+    <p>هل أنت متأكد أنك تريد حذف هذا المستخدم؟</p>
+    <button><a href='/management/'>تراجع</a></button>
+    <input type='submit' value='حذف'>
+</form>
+
+{% endblock body %}
